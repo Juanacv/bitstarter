@@ -13,8 +13,41 @@
     <link href="http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,300,400,600,700,800" 
           rel="stylesheet" type="text/css">
-    <script src="geo.js"></script>
     <script type="text/javascript">
+function initGeoApp() {
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition( success, failure);
+	}
+	else {
+	    alert("Your browser does not support geolocation services.");
+	}
+}
+
+var map;
+	     
+function success(position) {
+	var coordinates = new google.maps.LatLng(position.coords.latitude, position.coords.longitude); 
+	var myOptions =
+	{                      
+		zoom: 14,
+	    center: coordinates,
+	    mapTypeControl: false,
+	    navigationControlOptions: {style: google.maps.NavigationControlStyle.small},
+	    mapTypeId: google.maps.MapTypeId.ROADMAP    
+	};
+	 
+	map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+	 
+	var marker = new google.maps.Marker({
+	    position: coordinates,
+	    map: map,
+	    title: "You are here."
+	});
+}
+	 
+function failure() {
+	    alert("Sorry, could not obtain location");
+}
 	$(document).ready(initGeoApp());
     </script>
     <style type="text/css">
