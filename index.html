@@ -204,6 +204,7 @@ function failure() {
 
         <!-- We define a new 'actions' div to contain statistics, order, and share buttons.-->
         <div class="span5 actions">
+         <div class="row-fluid">
           <div class="span8 offset2">
             <div class="statistics">
               <div class="span4">
@@ -226,26 +227,33 @@ function failure() {
               </div>
             </div>
           </div>
-          <div class="span10 offset1">
-            <!-- Bootstrap progress bar -->
-            <!-- http://twitter.github.io/bootstrap/components.html#progress -->
-            <div class="thermometer progress active">
-              <div class="bar bar-success" style="width: 0%;"></div>
-              <div class="bar bar-warning" style="width: 100%;"></div>
-            </div>
-          </div>
-          <div class="span6 offset3 order">
-            <!-- Standard Bootstrap button. -->
-            <!-- http://twitter.github.io/bootstrap/base-css.html#buttons -->
-            <button class="btn btn-success btn-large">Preorder</button>
-          </div>
-          <div class="span8 offset2 social">
-            <!-- Social buttons are not included in default Bootstrap. -->
-            <!-- See: http://noizwaves.github.io/bootstrap-social-buttons -->
-            <button class="btn btn-twitter"><i class="icon-twitter"></i> | Twitter</button>
-            <button class="btn btn-facebook"><i class="icon-facebook"></i> | Facebook</button>
-          </div>
+          <div class="row-fluid">
+             <div class="span10 offset1">
+                <!-- Bootstrap progress bar -->
+                <!-- http://twitter.github.io/bootstrap/components.html#progress -->
+                <div class="thermometer progress active">
+                   <div class="bar bar-success" style="width: 0%;"></div>
+                   <div class="bar bar-warning" style="width: 100%;"></div>
+                </div>
+             </div>
+          </div>  
+          <div class="row-fluid">
+             <div class="span6 offset3 order">
+                <!-- Standard Bootstrap button. -->
+                <!-- http://twitter.github.io/bootstrap/base-css.html#buttons -->
+                <button class="btn btn-success btn-large">Preorder</button>
+             </div>
+          </div> 
+          <div class="row-fluid">
+             <div class="span8 offset2 social">
+                <!-- Social buttons are not included in default Bootstrap. -->
+                <!-- See: http://noizwaves.github.io/bootstrap-social-buttons -->
+                <button class="btn btn-twitter"><i class="icon-twitter"></i> | Twitter</button>
+                <button class="btn btn-facebook"><i class="icon-facebook"></i> | Facebook</button>
+             </div>
+          </div>   
         </div>
+       </div>
       </div>
 
       <!-- Beyond this part the marketing copy begins. -->
@@ -254,7 +262,7 @@ function failure() {
       <!-- http://placehold.it -->
       <div class="row-fluid section1">
         <div class="span5 offset1 asset">
-          <img class="img-polaroid" src="http://i.imgur.com/9LyrB05.jpg">
+          <img class="img-polaroid" src="http://i.imgur.com/9LyrB05.jpg" alt="sending a food request">
         </div>
         <div class="span5 copy">
           <p>
@@ -283,7 +291,7 @@ function failure() {
 
       <div class="row-fluid section3">
         <div class="span5 offset1 asset">
-          <img class="img-polaroid" src="http://i.imgur.com/vx7enaX.jpg">
+          <img class="img-polaroid" src="http://i.imgur.com/vx7enaX.jpg" alt="Sushi by air">
         </div>
         <div class="span5 copy">
           <p>
