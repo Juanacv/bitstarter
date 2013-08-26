@@ -33,6 +33,19 @@ app.get('/orders', function(request, response) {
   });
 });
 
+app.get('/sum', function(request, response) {
+   var coins = 0;
+   var total = [];
+   global.db.Order.findAll().success(function(orders) {
+      orders.forEach(function(order) {
+         coins += order.amount;
+      });
+      response.send({bitcoins: coins, bakers: orders.length});
+   }).error(function(err) {
+      console.log(err);
+      response.send({bitcoins : "error retrieving order"});
+   });  	
+});
 // Hit this URL while on example.com/orders to refresh
 app.get('/refresh_orders', function(request, response) {
   https.get("https://coinbase.com/api/v1/orders?api_key=" + process.env.COINBASE_API_KEY, function(res) {

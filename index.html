@@ -14,41 +14,61 @@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,300,400,600,700,800" 
           rel="stylesheet" type="text/css">
     <script type="text/javascript">
-function initGeoApp() {
-	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition( success, failure);
-	}
-	else {
-	    alert("Your browser does not support geolocation services.");
-	}
-}
+	var TOTAL_BTCS = 80;
+        function initGeoApp() {
+	   if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition( success, failure);
+	   }
+           else {
+	      alert("Your browser does not support geolocation services.");
+	   }
+        }     
 
-var map;
+        var map;
 	     
-function success(position) {
-	var coordinates = new google.maps.LatLng(position.coords.latitude, position.coords.longitude); 
-	var myOptions =
-	{                      
-		zoom: 14,
-	    center: coordinates,
-	    mapTypeControl: false,
-	    navigationControlOptions: {style: google.maps.NavigationControlStyle.small},
-	    mapTypeId: google.maps.MapTypeId.ROADMAP    
-	};
+        function success(position) {
+	   var coordinates = new google.maps.LatLng(position.coords.latitude, position.coords.longitude); 
+	   var myOptions =
+	   {                      
+              zoom: 14,
+	      center: coordinates,
+	      mapTypeControl: false,
+	      navigationControlOptions: {style: google.maps.NavigationControlStyle.small},
+	      mapTypeId: google.maps.MapTypeId.ROADMAP    
+	   };
 	 
-	map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+	   map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 	 
-	var marker = new google.maps.Marker({
-	    position: coordinates,
-	    map: map,
-	    title: "You are here."
-	});
-}
+	   var marker = new google.maps.Marker({
+	      position: coordinates,
+	      map: map,
+	      title: "You are here."
+	   });
+        }
 	 
-function failure() {
+        function failure() {
 	    alert("Sorry, could not obtain location");
-}
-	$(document).ready(initGeoApp());
+        }
+        
+        function populate_bitstarter_results(total) {
+           $("#bakers").html(total.bakers);
+           $("#bitcoins").html(total.bitcoins);
+           var total_percentage = (total.bitcoins / TOTAL_BTCS) * 100;
+           var percentage_left = ((TOTAL_BTCS - total.bitcoins)/TOTAL_BTCS) * 100;
+           $(".bar-success").css("width", total_percentage + "%");
+           $(".bar-warning").css("width", percentage_left + "%");
+        }
+
+        $(document).ready(function() {
+              $.ajax({
+                 url: "/sum"
+
+              }).done(function(total) {
+                 populate_bitstarter_results(total);     
+              });
+              initGeoApp();
+           }
+        );
     </script>
     <style type="text/css">
 
@@ -93,6 +113,9 @@ function failure() {
         padding-top: 1.5%;
         font-size: 24px;
         line-height: 30px;
+      }
+      .statistics p {
+        font-size: 17px; 
       }
       p {
         font-size: 18px;
@@ -229,12 +252,12 @@ function failure() {
                 different in horizontal and vertical layouts, illustrating
                 media queries. -->
                 <div class="linediv-l">
-                <h3>0</h3> <p>backers</p>
+                <h3 id="bakers">0</h3> <p>backers</p>
                 </div>
               </div>
               <div class="span4">
                 <div class="linediv-c">
-                  <h3>0</h3> <p>of $6,000</p>
+                  <h3 id="bitcoins">0</h3> <p id="total_expected">of 80 BTCs</p>
                 </div>
               </div>
               <div class="span4">
