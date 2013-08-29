@@ -24,7 +24,10 @@
            $(".bar-success").css("width", total_percentage + "%");
            $(".bar-warning").css("width", percentage_left + "%");
         }
-
+        function removeActiveClass() {
+        	$('.active').removeClass('active');  
+        }
+        
         $(document).ready(function() {
               $.ajax({
                  url: "/sum"
@@ -32,8 +35,12 @@
               }).done(function(total) {
                  populate_bitstarter_results(total);     
               });
-           }
-        );
+              $('.navlinks').click(function() { 
+                   removeActiveClass();
+                   $(this).parent('li').addClass('active');
+              });
+        });
+
     </script>
     <style type="text/css">
 
@@ -172,13 +179,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#">Tag to me!</a>
+          <a class="brand" href="#" onclick="removeActiveClass()">Tag to me!</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="#statistics">Statistics</a></li>
-              <li><a href="#about">About</a></li>
-	      <li><a href="#faqbottom">FAQ</a></li>
-              <li><a href="/orders">Orders</a></li>
+              <li class="active"><a class="navlinks" href="#bitcoins">Statistics</a></li>
+              <li><a class="navlinks" href="#about">About</a></li>
+	      <li><a class="navlinks" href="#faqbottom">FAQ</a></li>
+              <li><a class="navlinks" href="/orders">Orders</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -203,7 +210,7 @@
           <p class="lead">Discover who is near you sharing the same interests.</p>
         </div>
       </div>
-      <div id="statistics" name="statistics" class="row-fluid pitch">
+      <div id="bitcoins" name="bitcoins" class="row-fluid pitch">
         <div class="span5 offset1">
 	         <img alt="logo" class="img-polaroid" src="http://i.imgur.com/zP1ZS8y.png">
         </div>
