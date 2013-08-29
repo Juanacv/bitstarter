@@ -18,7 +18,7 @@
         
         function populate_bitstarter_results(total) {
            $("#bakers").html(total.bakers);
-           $("#bitcoins").html(total.bitcoins);
+           $("#btcs").html(total.bitcoins);
            var total_percentage = (total.bitcoins / TOTAL_BTCS) * 100;
            var percentage_left = ((TOTAL_BTCS - total.bitcoins)/TOTAL_BTCS) * 100;
            $(".bar-success").css("width", total_percentage + "%");
@@ -230,7 +230,7 @@
               </div>
               <div class="span4">
                 <div class="linediv-c">
-                  <h3 id="bitcoins">0</h3> <p id="total_expected">of 250 BTCs</p>
+                  <h3 id="btcs">0</h3> <p id="total_expected">of 250 BTCs</p>
                 </div>
               </div>
               <div class="span4">
