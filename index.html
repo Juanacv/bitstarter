@@ -40,7 +40,17 @@
               	removeActiveClass();
               	$(this).parent("li").addClass("active");
               });
-              
+        
+            $(".navlinks, .brand").on("click", function(event){
+        		$("html, body").animate({
+            		scrollTop: $($(this).attr("href")).offset().top - 40 + "px"
+        		}, {
+            		duration: 500,
+            		easing: "swing"
+        		});
+        		return false;      
+    		});
+        
     		var layers = $('.mover').get();
     		var layersCount = layers.length;
     		var master = [];
@@ -218,7 +228,7 @@
   		})();
 	</script>
   </head>
-  <body>
+  <body id="main">
     <!-- Mobile-friendly navbar adapted from example. -->
     <!-- http://twitter.github.io/bootstrap/examples/starter-template.html -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -230,7 +240,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#" onclick="removeActiveClass()">Tag to me!</a>
+          <a class="brand" href="#main" onclick="removeActiveClass()">Tag to me!</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li><a class="navlinks" href="#bitcoins">Statistics</a></li>
