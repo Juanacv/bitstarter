@@ -8,6 +8,8 @@ var async   = require('async')
   , db      = require('./models');
 
 var app = express();
+app.use('/css', express.static(__dirname + '/css'));
+app.use('/js', express.static(__dirname + '/js'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.set('port', process.env.PORT || 8080);
@@ -23,6 +25,7 @@ app.get('/orders', function(request, response) {
   global.db.Order.findAll().success(function(orders) {
     var orders_json = [];
     orders.forEach(function(order) {
+      console.log(order.coinbase_id + ' ' + order.amount);
       orders_json.push({id: order.coinbase_id, amount: order.amount, time: order.time});
     });
     // Uses views/orders.ejs
