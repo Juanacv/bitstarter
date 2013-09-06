@@ -1,0 +1,122 @@
+      /* Large desktop */
+      @media (min-width: 980px) { 
+        body {
+         padding-top: 60px;
+        }
+       .linediv-l {
+         border-right: 1px white solid;
+        }
+       .linediv-r {
+         border-left: 1px white solid;
+       }
+       #parallax {
+      	 background:url(http://i.imgur.com/4Hlphum.jpg) no-repeat scroll 0 0;
+      	 position:absolute;
+      	 text-align:center;
+      	 width: 150px;
+      	 height: 150px;
+      	 left: 88%; 
+      	 top: 50px;
+      	 z-index:99;
+       }
+      }
+
+      /* Landscape phones and down */
+      @media (max-width: 480px) { 
+       .copy {
+         padding: 2.5% 10%;
+       }
+       .linediv-l {
+         border-bottom: 1px white solid;
+       }
+       .linediv-r {
+         border-top: 1px white solid;
+       }
+       #parallax {
+      	 display:none;
+       }
+      }
+
+      /* All form factors */
+
+      /* Main body and headings */
+      body{
+        font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+        background: url("http://i.imgur.com/jGQVTV8.jpg") repeat scroll 0% 0%; 
+      }
+      .heading, .subheading {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+        text-align: center;
+      }
+      p.lead {
+        padding-top: 1.5%;
+        font-size: 24px;
+        line-height: 30px;
+      }
+      .statistics p {
+        font-size: 17px; 
+      }
+      p {
+        font-size: 18px;
+        line-height: 24px;
+      }
+
+      /* Video pitch and Action */
+      .pitch {
+        padding: 2.5% 0%;
+      }
+      .order {
+        padding: 2% 0%;
+      }
+      .actions {
+        background-color: #343434;
+        padding: 3% 0%;
+      }
+      .video, .thermometer, .order, .social, .statistics {
+        text-align: center;
+      }
+      .statistics h3, .statistics p {
+        color: white;
+      }
+
+      /* Marketing Copy and Footer */
+      .copy {
+        padding-top: 2.5%;
+        padding-bottom: 2.5%;
+        text-align: justify;
+      }
+      .asset {
+        padding: 2.5% 0%;
+      }
+      .footer {
+        color: #cccccc;
+        text-align: center;
+      }
+      .footer p {
+        font-size: 11px;
+      }
+      .footer a {
+        color: #ccccff;
+      }
+      a{
+      	color:#f85c8c;
+      }
+      .caption {
+      	font-style:italic;
+      	font-size:10px;
+      }
+      div.addthis_toolbox {
+        width:245px;
+        margin: 0 auto;
+      }
+      div.section1 {
+    	width:83%;
+    	margin: 0 auto;
+      }
+      img.fit-fix {
+        width:96%;
+        padding: 5px;
+      }
+      div.content-boxed {
+      		min-height: 29em;
+      }
